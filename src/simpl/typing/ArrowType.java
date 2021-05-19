@@ -1,4 +1,4 @@
-//done on 18 May morning
+//done on 19 May morning
 package simpl.typing;
 
 public final class ArrowType extends Type {

@@ -1,3 +1,4 @@
+//done on 19 May morning
 package simpl.typing;
 
 public final class ListType extends Type {
@@ -22,19 +23,24 @@ public final class ListType extends Type {
          * 2. list t = list tv => [tv/t]
          * 3. list t = others => error
          */
-        return null;
+        if(t instanceof TypeVar)
+            return Substitution.of(((TypeVar) t), this);
+        else if(t instanceof ListType)
+            return Substitution.IDENTITY;
+        throw new TypeMismatchError();
+        // return null;
     }
 
     @Override
     public boolean contains(TypeVar tv) {
         // TODO
-        return false;
+        return t.contains(tv);
     }
 
     @Override
     public Type replace(TypeVar a, Type t) {
         // TODO
-        return null;
+        return new ListType(this.t.replace(a, t));
     }
 
     public String toString() {
