@@ -1,3 +1,4 @@
+//done on 23 May morning
 package simpl.interpreter;
 
 public class PairValue extends Value {
@@ -16,6 +17,9 @@ public class PairValue extends Value {
     @Override
     public boolean equals(Object other) {
         // TODO
+        if (other instanceof PairValue) {
+            return this.v1.equals(((PairValue) other).v1) && this.v2.equals(((PairValue) other).v2);
+        }
         return false;
     }
 }

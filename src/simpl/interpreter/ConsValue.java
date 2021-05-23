@@ -1,3 +1,4 @@
+//done on 23 May morning
 package simpl.interpreter;
 
 public class ConsValue extends Value {
@@ -11,12 +12,15 @@ public class ConsValue extends Value {
 
     public String toString() {
         // TODO
-        return null;
+        return this.v1.toString() + "::" + this.v2.toString();
     }
 
     @Override
     public boolean equals(Object other) {
         // TODO
+        if (other instanceof ConsValue) {
+            return this.v1.equals(((ConsValue) other).v1) && this.v2.equals(((ConsValue) other).v2);
+        }
         return false;
     }
 }

@@ -1,3 +1,4 @@
+//done on 23 May morning 
 package simpl.interpreter;
 
 class NilValue extends Value {
@@ -12,6 +13,9 @@ class NilValue extends Value {
     @Override
     public boolean equals(Object other) {
         // TODO
+        if (other instanceof NilValue) {
+            return true;
+        }
         return false;
     }
 }

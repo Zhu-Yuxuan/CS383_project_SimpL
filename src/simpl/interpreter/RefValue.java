@@ -1,4 +1,7 @@
+//done on 23 May morning
 package simpl.interpreter;
+
+import java.sql.Ref;
 
 public class RefValue extends Value {
 
@@ -15,6 +18,9 @@ public class RefValue extends Value {
     @Override
     public boolean equals(Object other) {
         // TODO
+        if (other instanceof RefValue) {
+            return this.p == ((RefValue) other).p;
+        }
         return false;
     }
 }

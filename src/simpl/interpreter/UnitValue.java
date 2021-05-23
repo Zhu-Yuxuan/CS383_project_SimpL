@@ -1,3 +1,4 @@
+//done on 23 May morning
 package simpl.interpreter;
 
 class UnitValue extends Value {
@@ -12,6 +13,9 @@ class UnitValue extends Value {
     @Override
     public boolean equals(Object other) {
         // TODO
+        if (other instanceof UnitValue) {
+            return true;
+        }
         return false;
     }
 }
