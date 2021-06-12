@@ -23,11 +23,16 @@ public final class ListType extends Type {
          * 2. list t = list tv => [tv/t]
          * 3. list t = others => error
          */
+        // if(t instanceof TypeVar)
+        //     return Substitution.of(((TypeVar) t), this);
+        // else if(t instanceof ListType)
+        //     return ((ListType) t).t.unify(this.t);
+        // throw new TypeMismatchError();
         if(t instanceof TypeVar)
-            return Substitution.of(((TypeVar) t), this);
-        else if(t instanceof ListType)
-            return Substitution.IDENTITY;
-        throw new TypeMismatchError();
+            return Substitution.of((TypeVar) t, this);
+        else if (t instanceof ListType)
+            return ((ListType) t).t.unify(this.t);
+        else throw new TypeMismatchError();
         // return null;
     }
 

@@ -16,21 +16,26 @@ public class Interpreter {
             Parser parser = new Parser(inp);
             java_cup.runtime.Symbol parseTree = parser.parse();
             Expr program = (Expr) parseTree.value;
-            System.out.println(program.typecheck(new DefaultTypeEnv()).t);
+            // System.out.println(program);
+            System.out.print("√\t");
+            System.out.print(program.typecheck(new DefaultTypeEnv()).t);
+            System.out.print("\t");
             System.out.println(program.eval(new InitialState()));
         }
         catch (SyntaxError e) {
-            System.out.println("syntax error");
+            System.out.print("syntax error");
         }
         catch (TypeError e) {
-            System.out.println("type error");
+            System.out.print("type error \t");
+            System.out.println(e);
         }
         catch (RuntimeError e) {
-            System.out.println("runtime error");
+            System.out.print("runtime error ");
         }
         catch (Exception e) {
             e.printStackTrace(System.err);
         }
+        // System.out.println("√");
     }
 
     private static void interpret(String filename) {
@@ -52,7 +57,9 @@ public class Interpreter {
         interpret("doc/examples/pcf.minus.spl");
         interpret("doc/examples/pcf.factorial.spl");
         interpret("doc/examples/pcf.fibonacci.spl");
-        // interpret("doc/examples/pcf.twice.spl");
+        interpret("doc/examples/pcf.twice.spl");
         // interpret("doc/examples/pcf.lists.spl");
+        interpret("examples/letpoly.spl");
+        interpret("doc/examples/error.spl");   
     }
 }

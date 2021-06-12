@@ -29,11 +29,14 @@ public final class ArrowType extends Type {
         if(t instanceof TypeVar)
             return Substitution.of(((TypeVar) t), this);
         else if(t instanceof ArrowType){
-            Substitution s1 = this.t1.unify(((ArrowType) t).t1);
-            Substitution s2 = this.t2.unify(((ArrowType) t).t2);
+            // Substitution s1 = this.t1.unify(((ArrowType) t).t1);
+            // Substitution s2 = this.t2.unify(((ArrowType) t).t2);
+            // return s1.compose(s2);
+            Substitution s1 = ((ArrowType) t).t1.unify(this.t1);
+            Substitution s2 = s1.apply(((ArrowType) t).t2).unify(s1.apply(this.t2));
             return s1.compose(s2);
         }
-        throw new TypeMismatchError();
+        else throw new TypeMismatchError();
     }
 
     @Override
@@ -46,7 +49,7 @@ public final class ArrowType extends Type {
     @Override
     public Type replace(TypeVar a, Type t) {
         // TODO
-        return new ArrowType(this.replace(a, t), this.replace(a, t));
+        return new ArrowType(this.t1.replace(a, t), this.t2.replace(a, t));
     }
 
     public String toString() {

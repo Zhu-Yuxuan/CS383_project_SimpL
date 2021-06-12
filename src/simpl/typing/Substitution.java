@@ -51,7 +51,7 @@ public abstract class Substitution {
 
     public TypeEnv compose(final TypeEnv E) {
         return new TypeEnv() {
-            public Type get(Symbol x) {
+            public Type get(Symbol x) throws TypeError {
                 return apply(E.get(x));
             }
         };

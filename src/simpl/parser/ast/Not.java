@@ -9,6 +9,7 @@ import simpl.typing.Type;
 import simpl.typing.TypeEnv;
 import simpl.typing.TypeError;
 import simpl.typing.TypeResult;
+import simpl.parser.Symbol;
 
 public class Not extends UnaryExpr {
 
@@ -21,14 +22,39 @@ public class Not extends UnaryExpr {
     }
 
     @Override
+    public Not replace (Symbol x, Expr e) {
+        return new Not(this.e.replace(x, e));
+    }
+
+    @Override
     public TypeResult typecheck(TypeEnv E) throws TypeError {
         // TODO
-        return null;
+        /**
+         * CT-Not
+         * G|-e:t, q
+         * ---------
+         * G|-not e:a, q U {a = t, a = bool}
+         */
+        TypeResult tr = e.typecheck(E);
+        Substitution s = tr.t.unify(Type.BOOL);
+        s = tr.s.compose(s);
+        return TypeResult.of(s, Type.BOOL);
     }
 
     @Override
     public Value eval(State s) throws RuntimeError {
         // TODO
-        return null;
+        /**
+         * true:
+         * E,M,p;e => M',p';tt
+         * -------------------
+         * E,M,p;not e => M',p';ff
+         * false:
+         * E,M,p;e => M',p';ff
+         * -------------------
+         * E,M,p;not e => M',p';tt
+         */
+        BoolValue v = (BoolValue) e.eval(s);
+        return new BoolValue(!(v.b));
     }
 }

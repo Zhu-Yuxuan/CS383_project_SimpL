@@ -8,6 +8,7 @@ import simpl.typing.Type;
 import simpl.typing.TypeEnv;
 import simpl.typing.TypeError;
 import simpl.typing.TypeResult;
+import simpl.parser.Symbol;
 
 public class IntegerLiteral extends Expr {
 
@@ -19,6 +20,11 @@ public class IntegerLiteral extends Expr {
 
     public String toString() {
         return "" + n;
+    }
+
+    @Override
+    public IntegerLiteral replace (Symbol x, Expr e) {
+        return this;
     }
 
     @Override

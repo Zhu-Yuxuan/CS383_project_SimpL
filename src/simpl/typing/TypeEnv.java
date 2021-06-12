@@ -4,11 +4,11 @@ import simpl.parser.Symbol;
 
 public abstract class TypeEnv {
 
-    public abstract Type get(Symbol x);
+    public abstract Type get(Symbol x) throws TypeError;
 
     public static TypeEnv of(final TypeEnv E, final Symbol x, final Type t) {
         return new TypeEnv() {
-            public Type get(Symbol x1) {
+            public Type get(Symbol x1) throws TypeError{
                 if (x == x1) return t;
                 return E.get(x1);
             }

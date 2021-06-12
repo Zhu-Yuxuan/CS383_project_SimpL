@@ -11,11 +11,34 @@ import simpl.parser.ast.Expr;
 import simpl.typing.TypeEnv;
 import simpl.typing.TypeError;
 import simpl.typing.TypeResult;
+import simpl.typing.TypeVar;
 
 public class snd extends FunValue {
 
     public snd() {
         // TODO
-        super(null, null, null);
+        super(Env.empty, Symbol.symbol("snd"), new Expr() {
+            @Override
+            public Expr replace (Symbol x, Expr e) {
+                return this;
+            }
+
+            @Override
+            public TypeResult typecheck (TypeEnv E) throws TypeError {
+                // return null;
+                return TypeResult.of(new TypeVar(true));
+            }
+
+            @Override
+            public Value eval (State s) throws RuntimeError {
+                /**
+                 * E,M,p;e2 => M',p';v2
+                 * ------------------------
+                 * E,M,p;snd(e1,e2) => M',p';v2
+                 */
+                PairValue v1 = (PairValue) s.E.get(Symbol.symbol("snd"));
+                return v1.v2;
+            }
+        });
     }
 }

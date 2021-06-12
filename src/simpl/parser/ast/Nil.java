@@ -8,6 +8,7 @@ import simpl.typing.TypeEnv;
 import simpl.typing.TypeError;
 import simpl.typing.TypeResult;
 import simpl.typing.TypeVar;
+import simpl.parser.Symbol;
 
 public class Nil extends Expr {
 
@@ -16,14 +17,31 @@ public class Nil extends Expr {
     }
 
     @Override
+    public Nil replace (Symbol x, Expr e) {
+        return this;
+    }
+
+    @Override
     public TypeResult typecheck(TypeEnv E) throws TypeError {
         // TODO
-        return null;
+        /**
+         * CT-NIL
+         * 
+         * -----
+         * G|-nil[t]:t list, {}
+         */
+        TypeVar tn = new TypeVar(true); // or false?
+        return TypeResult.of(new ListType(tn));
     }
 
     @Override
     public Value eval(State s) throws RuntimeError {
         // TODO
-        return null;
+        /**
+         * 
+         * -----------
+         * E,M,p;nil => M,p;nil
+         */
+        return Value.NIL;
     }
 }

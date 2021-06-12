@@ -1,5 +1,6 @@
 package simpl.parser.ast;
 
+// import java_cup.runtime.Symbol;
 import simpl.interpreter.BoolValue;
 import simpl.interpreter.RuntimeError;
 import simpl.interpreter.State;
@@ -8,6 +9,7 @@ import simpl.typing.Type;
 import simpl.typing.TypeEnv;
 import simpl.typing.TypeError;
 import simpl.typing.TypeResult;
+import simpl.parser.Symbol;
 
 public class BooleanLiteral extends Expr {
 
@@ -19,6 +21,11 @@ public class BooleanLiteral extends Expr {
 
     public String toString() {
         return "" + b;
+    }
+
+    @Override
+    public BooleanLiteral replace (Symbol x, Expr e) {
+        return this;
     }
 
     @Override
