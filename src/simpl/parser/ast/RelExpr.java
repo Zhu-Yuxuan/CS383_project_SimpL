@@ -5,7 +5,6 @@ import simpl.typing.Type;
 import simpl.typing.TypeEnv;
 import simpl.typing.TypeError;
 import simpl.typing.TypeResult;
-// import simpl.parser.Symbol;
 
 public abstract class RelExpr extends BinaryExpr {
 

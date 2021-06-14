@@ -14,7 +14,6 @@ public final class ArrowType extends Type {
     public boolean isEqualityType() {
         // TODO
         // consider arrow type as two other types
-        // return this.t1.isEqualityType() && this.t2.isEqualityType();
         return false;
     }
 

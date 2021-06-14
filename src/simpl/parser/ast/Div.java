@@ -6,7 +6,6 @@ import simpl.interpreter.IntValue;
 import simpl.interpreter.RuntimeError;
 import simpl.interpreter.State;
 import simpl.interpreter.Value;
-// import simpl.typing.TypeResult;
 import simpl.parser.Symbol;
 
 public class Div extends ArithExpr {

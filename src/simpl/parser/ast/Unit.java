@@ -1,6 +1,5 @@
 package simpl.parser.ast;
 
-// import java_cup.runtime.SymbolFactory;
 import simpl.interpreter.RuntimeError;
 import simpl.interpreter.State;
 import simpl.interpreter.Value;

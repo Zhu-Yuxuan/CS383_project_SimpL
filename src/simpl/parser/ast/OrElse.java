@@ -1,7 +1,6 @@
 package simpl.parser.ast;
 
 import simpl.interpreter.BoolValue;
-// import simpl.interpreter.IntValue;
 import simpl.interpreter.RuntimeError;
 import simpl.interpreter.State;
 import simpl.interpreter.Value;

@@ -48,8 +48,6 @@ public class Let extends Expr {
          * G|-let x=e1 in e2:t2, q1
          */
         TypeResult t1 = e1.typecheck(E);
-        // TypeEnv E2 = t1.s.compose(E);
-        // TypeResult t2 = e2.replace(x, e1).typecheck(E2);
         TypeResult t2 = e2.replace(x, e1).typecheck(E);
         return TypeResult.of(t2.s, t2.s.apply(t2.t));
     }

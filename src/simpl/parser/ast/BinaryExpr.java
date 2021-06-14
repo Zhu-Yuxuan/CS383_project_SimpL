@@ -1,7 +1,5 @@
 package simpl.parser.ast;
 
-// import java_cup.runtime.Symbol;
-
 public abstract class BinaryExpr extends Expr {
 
     public Expr l, r;

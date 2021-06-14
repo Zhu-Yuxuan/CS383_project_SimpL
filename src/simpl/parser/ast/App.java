@@ -8,7 +8,6 @@ import simpl.interpreter.Value;
 import simpl.parser.Symbol;
 import simpl.typing.ArrowType;
 import simpl.typing.Substitution;
-// import simpl.typing.Type;
 import simpl.typing.TypeEnv;
 import simpl.typing.TypeError;
 import simpl.typing.TypeResult;

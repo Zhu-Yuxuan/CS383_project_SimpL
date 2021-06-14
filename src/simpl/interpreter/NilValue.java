@@ -1,4 +1,3 @@
-//done on 23 May morning 
 package simpl.interpreter;
 
 class NilValue extends Value {

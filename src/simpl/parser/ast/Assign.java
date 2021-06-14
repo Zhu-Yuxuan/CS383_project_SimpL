@@ -1,8 +1,5 @@
 package simpl.parser.ast;
 
-// import java.util.PrimitiveIterator.OfDouble;
-
-// import java_cup.runtime.Symbol;
 import simpl.interpreter.RefValue;
 import simpl.interpreter.RuntimeError;
 import simpl.interpreter.State;

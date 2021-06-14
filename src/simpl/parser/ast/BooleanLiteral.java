@@ -1,6 +1,5 @@
 package simpl.parser.ast;
 
-// import java_cup.runtime.Symbol;
 import simpl.interpreter.BoolValue;
 import simpl.interpreter.RuntimeError;
 import simpl.interpreter.State;

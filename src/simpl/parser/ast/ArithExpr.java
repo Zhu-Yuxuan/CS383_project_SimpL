@@ -1,6 +1,5 @@
 package simpl.parser.ast;
 
-// import java_cup.runtime.Symbol;s
 import simpl.typing.Substitution;
 import simpl.typing.Type;
 import simpl.typing.TypeEnv;

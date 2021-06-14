@@ -1,9 +1,5 @@
 package simpl.parser.ast;
 
-// import simpl.interpreter.IntValue;
-
-// import java.util.concurrent.Flow.Subscriber;
-
 import simpl.interpreter.PairValue;
 import simpl.interpreter.RuntimeError;
 import simpl.interpreter.State;
